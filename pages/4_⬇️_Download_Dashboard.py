@@ -115,7 +115,10 @@ image_stream = io.BytesIO()
 skin_color_rgb = (255/255, 255/255, 224.9/255)
 fig.patch.set_facecolor(skin_color_rgb)
 plt.rcParams.update({'font.family': 'serif', 'font.size': 12})
-plt.savefig(image_stream, format='png')
+
+dpi = 450
+
+plt.savefig(image_stream, format='png', dpi=dpi)
 
 # Display the image in Streamlit
 st.image(image_stream, caption='Combined Plots', use_column_width=True)
