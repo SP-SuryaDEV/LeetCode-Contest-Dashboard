@@ -125,7 +125,8 @@ st.image(image_stream, caption='Combined Plots', use_column_width=True)
 image_stream.seek(0)
 
 if not st.session_state.get('img'):
-    st.session_state.img = Image.open(image_stream)
+    st.session_state.img = image_stream
+    
     
 st.download_button(
     label="Download Dashboard",
