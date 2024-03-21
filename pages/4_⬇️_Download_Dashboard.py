@@ -126,9 +126,8 @@ image_stream.seek(0)
 
 @st.cache_data
 def saveDashboard():
-    if not st.session_state.get('img'):
-        img = Image.open(image_stream)
-        img.save('../saved_dashboard.png')
+    img = Image.open(image_stream)
+    img.save('../saved_dashboard.png')
     
     
 with open("../saved_dashboard.png", "rb") as file:
