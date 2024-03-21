@@ -131,7 +131,7 @@ if not st.session_state.get('img'):
     
 st.download_button(
     label="Download Dashboard",
-    file='saved_dashboard.png',
+    data='saved_dashboard.png',
     file_name=f'{fig_text}'
 )
 st.success("Image saved successfully!")
