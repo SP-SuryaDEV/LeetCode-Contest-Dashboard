@@ -128,10 +128,10 @@ image_stream.seek(0)
 def saveDashboard():
     if not st.session_state.get('img'):
         img = Image.open(image_stream)
-        img.save('saved_dashboard.png')
+        img.save('../saved_dashboard.png')
     
     
-with open("saved_dashboard.png", "rb") as file:
+with open("../saved_dashboard.png", "rb") as file:
     btn = st.download_button(
             label="Download Dashboard",
             data=file,
