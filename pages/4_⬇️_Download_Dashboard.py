@@ -132,4 +132,4 @@ st.download_button(
     data=st.session_state.img,
     file_name=f'{fig_text}'
 )
-    st.success("Image saved successfully!")
+st.success("Image saved successfully!")
