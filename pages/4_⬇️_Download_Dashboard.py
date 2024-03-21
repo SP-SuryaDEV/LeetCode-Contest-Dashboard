@@ -125,12 +125,13 @@ st.image(image_stream, caption='Combined Plots', use_column_width=True)
 image_stream.seek(0)
 
 if not st.session_state.get('img'):
-    st.session_state.img = image_stream
+    st.session_state.img = Image.open(image_stream)
+    st.session_state.img.save('saved_dashboard.png')
     
     
 st.download_button(
     label="Download Dashboard",
-    data=st.session_state.img,
+    file='saved_dashboard.png',
     file_name=f'{fig_text}'
 )
 st.success("Image saved successfully!")
