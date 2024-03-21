@@ -127,10 +127,11 @@ image_stream.seek(0)
 @st.cache_data
 def saveDashboard():
     img = Image.open(image_stream)
-    img.save('../saved_dashboard.png')
+    img.save('./saved_dashboard.png')
+
+saveDashboard()
     
-    
-with open("../saved_dashboard.png", "rb") as file:
+with open("./saved_dashboard.png", "rb") as file:
     btn = st.download_button(
             label="Download Dashboard",
             data=file,
