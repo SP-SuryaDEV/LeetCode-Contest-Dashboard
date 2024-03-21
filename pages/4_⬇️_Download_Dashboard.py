@@ -123,8 +123,13 @@ plt.savefig(image_stream, format='png', dpi=dpi)
 # Display the image in Streamlit
 st.image(image_stream, caption='Combined Plots', use_column_width=True)
 image_stream.seek(0)
-if st.button('Save Image'):
-    # Save the image
-    img = Image.open(image_stream)
-    img.save("saved_image.png")
+
+if not st.session_state.get('img'):
+    st.session_state.img = Image.open(image_stream)
+    
+st.download_button(
+    label="Download Dashboard",
+    data=st.session_state.img,
+    file_name=f'{fig_text}'
+)
     st.success("Image saved successfully!")
