@@ -129,11 +129,11 @@ if not st.session_state.get('img'):
     st.session_state.img.save('saved_dashboard.png')
     
     
-with open("flower.png", "rb") as file:
+with open("saved_dashboard.png", "rb") as file:
     btn = st.download_button(
             label="Download Dashboard",
             data=file,
-            file_name="saved_dashboard.png",
+            file_name="{fig_text}.png",
             mime="image/png"
           )
     if btn:
