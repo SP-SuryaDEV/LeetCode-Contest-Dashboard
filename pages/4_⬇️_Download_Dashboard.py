@@ -69,7 +69,7 @@ viridis_colors = [
 ]
 
 sorted_filtered = filtered_data[filtered_data['Rank'] > 0].sort_values(by='Rank').head(10)[::-1]
-names_with_ranks = [f"{name} ({len(sorted_filtered) - rank}{'th' if (len(sorted_filtered) - rank) % 10 == 0 or (len(sorted_filtered) - rank) % 10 >= 4 or 10 < (len(sorted_filtered) - rank) % 100 < 20 else ['st', 'nd', 'rd'][(len(sorted_filtered) - rank) % 10 - 1]} Rank)" for rank, name in enumerate(sorted_filtered['Name'][::-1])]
+names_with_ranks = [f"{name} ({len(sorted_filtered) - rank}{'th' if (len(sorted_filtered) - rank) % 10 == 0 or (len(sorted_filtered) - rank) % 10 >= 4 or 10 < (len(sorted_filtered) - rank) % 100 < 20 else ['st', 'nd', 'rd'][(len(sorted_filtered) - rank) % 10 - 1]} Rank)" for rank, name in enumerate(sorted_filtered['Name'])]
 axs[1, 0].barh(names_with_ranks, sorted_filtered['Rank'],color=viridis_colors)
 axs[1, 0].set_xlabel('Ranking Score')
 axs[1, 0].set_ylabel('Name')
