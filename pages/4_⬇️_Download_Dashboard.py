@@ -129,9 +129,12 @@ if not st.session_state.get('img'):
     st.session_state.img.save('saved_dashboard.png')
     
     
-st.download_button(
-    label="Download Dashboard",
-    data='saved_dashboard.png',
-    file_name=f'{fig_text}'
-)
-st.success("Image saved successfully!")
+with open("flower.png", "rb") as file:
+    btn = st.download_button(
+            label="Download image",
+            data=file,
+            file_name="flower.png",
+            mime="image/png"
+          )
+    if btn:
+        st.success("Image saved successfully!")
