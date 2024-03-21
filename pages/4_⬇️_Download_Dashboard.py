@@ -124,9 +124,11 @@ plt.savefig(image_stream, format='png', dpi=dpi)
 st.image(image_stream, caption='Combined Plots', use_column_width=True)
 image_stream.seek(0)
 
-if not st.session_state.get('img'):
-    st.session_state.img = Image.open(image_stream)
-    st.session_state.img.save('saved_dashboard.png')
+@st.cache_data
+def saveDashboard():
+    if not st.session_state.get('img'):
+        img = Image.open(image_stream)
+        img.save('saved_dashboard.png')
     
     
 with open("saved_dashboard.png", "rb") as file:
