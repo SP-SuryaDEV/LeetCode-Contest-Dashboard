@@ -135,7 +135,7 @@ with open("./saved_dashboard.png", "rb") as file:
     btn = st.download_button(
             label="Download Dashboard",
             data=file,
-            file_name="{fig_text}.png",
+            file_name=f"{fig_text}.png",
             mime="image/png"
           )
     if btn:
