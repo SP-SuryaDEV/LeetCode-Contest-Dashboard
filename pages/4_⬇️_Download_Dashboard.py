@@ -116,7 +116,7 @@ skin_color_rgb = (255/255, 255/255, 224.9/255)
 fig.patch.set_facecolor(skin_color_rgb)
 plt.rcParams.update({'font.family': 'serif', 'font.size': 12})
 
-dpi = 900
+dpi = (500,500)
 
 plt.savefig(image_stream, format='png', dpi=dpi)
 
