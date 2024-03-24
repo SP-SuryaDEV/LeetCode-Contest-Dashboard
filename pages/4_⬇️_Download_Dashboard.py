@@ -9,7 +9,7 @@ from PIL import Image
 # Load data
 data = pd.read_csv('data.csv')
 
-st.set_page_config(layout="wide")
+# st.set_page_config(layout="wide")
 
 # Define unique values for filters
 departments = ["All"] + list(data['Department'].unique())
