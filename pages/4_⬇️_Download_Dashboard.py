@@ -106,7 +106,7 @@ for i, count in enumerate(rank_data['Count']):
   
 #fig.suptitle('LeetCode Weekly Contest Data', fontsize=40, y=.97)
 #fig_text = 'LeetCode Weekly Data'  # Text to be underlined
-fig_text = f'LeetCode Weekly Data ({department if department != "All" else "All"})'  # Dynamic title based on department filter  # Text to be underlined
+fig_text = f'LeetCode Weekly Data ({department if department != "All" else "All"}) - [{year if year != 'All' else 'All'}]'  # Dynamic title based on department filter  # Text to be underlined
 fig.suptitle(fig_text, fontsize=40, y=.96, fontweight='bold', color='black', style='italic', bbox=dict(facecolor='none', edgecolor='none', boxstyle='round,pad=0.5'))  # Underlined text using bbox
 
 image_stream = io.BytesIO()
@@ -135,7 +135,7 @@ with open("./saved_dashboard.png", "rb") as file:
     btn = st.download_button(
             label="Download Dashboard",
             data=file,
-            file_name=f"{fig_text}-{year}.png",
+            file_name=f"{fig_text}.png",
             mime="image/png"
           )
     if btn:
