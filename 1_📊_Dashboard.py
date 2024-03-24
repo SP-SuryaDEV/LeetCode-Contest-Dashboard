@@ -12,7 +12,7 @@ st.session_state.data = pd.read_csv('data.csv')
 
 data = st.session_state.data
 
-st.set_page_config(layout="wide")
+# st.set_page_config(layout="wide")
 st.session_state.filtered = data
 
 # Sidebar layout
