@@ -91,7 +91,7 @@ plasma_colors = [
     "#fdca26",
     "#f0f921"   # Vibrant yellow-green
 ]
-bins = [0, 1000, 5000, 10000, 15000, 20000]
+bins = [0, 1000, 5000, 10000, 15000, 20000, 30000]
 bin_labels = ['0-1000', '1000-5000', '5000-10000', '10000-15000', '15000-20000', '20000+']
 categories = pd.cut(filtered_data[filtered_data['Rank'] != 0]['Rank'], bins=bins, labels=bin_labels, ordered=True)
 rank_counts = categories.value_counts().reindex(bin_labels, fill_value=0)
