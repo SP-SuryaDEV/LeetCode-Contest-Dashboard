@@ -4,7 +4,8 @@ import plotly.express as px
 
 st.set_page_config(
     page_title="Leetcode Contest's Dashboard",
-    page_icon="🧊")
+    page_icon="🧊",
+    layout="wide")
 
 #Load data once
 st.session_state.data = pd.read_csv('data.csv')
