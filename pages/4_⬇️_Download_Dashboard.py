@@ -91,7 +91,7 @@ plasma_colors = [
     "#fdca26",
     "#f0f921"   # Vibrant yellow-green
 ]
-bins = [0, 1000, 5000, 10000, 15000, 20000, 30000]
+bins = [0, 1000, 5000, 10000, 15000, 20000, max(data['Rank'])]
 bin_labels = ['0-1000', '1000-5000', '5000-10000', '10000-15000', '15000-20000', '20000+']
 categories = pd.cut(filtered_data[filtered_data['Rank'] != 0]['Rank'], bins=bins, labels=bin_labels, ordered=True)
 rank_counts = categories.value_counts().reindex(bin_labels, fill_value=0)
@@ -124,14 +124,13 @@ plt.savefig(image_stream, format='png', dpi=dpi)
 st.image(image_stream, caption='Combined Plots', use_column_width=True)
 image_stream.seek(0)
 
-@st.cache_data
-def saveDashboard():
+def saveDashboard(image_stream):
     img = Image.open(image_stream)
-    img.save(f'./{fig_text}.png')
+    img.save(f'{fig_text}.png')
 
-saveDashboard()
+saveDashboard(image_stream)
     
-with open(f"./{fig_text}.png", "rb") as file:
+with open(f"{fig_text}.png", "rb") as file:
     btn = st.download_button(
             label="Download Dashboard",
             data=file,
