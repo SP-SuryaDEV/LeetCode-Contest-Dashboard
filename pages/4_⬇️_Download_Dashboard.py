@@ -39,7 +39,7 @@ fig, axs = plt.subplots(2, 2, figsize=(22, 15))
 rank_presence = filtered_data['Rank'].apply(lambda x: 'Absent' if x == 0 else 'Present')
 presence_counts = rank_presence.value_counts()
 colors = ['green','red']
-colors = [mcolors.to_rgba(c, alpha=0.5) for c in original_colors]
+colors = [mcolors.to_rgba(c, alpha=0.5) for c in colors]
 axs[0, 0].pie(presence_counts, labels=[f"{presence} ({count})" for presence, count in presence_counts.items()], autopct='%1.1f%%',colors=colors)
 axs[0, 0].set_title('Presence Distribution')
 
