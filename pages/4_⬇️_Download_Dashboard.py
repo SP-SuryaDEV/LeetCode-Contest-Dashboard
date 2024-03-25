@@ -33,7 +33,7 @@ if domain != 'All':
     filtered_data = filtered_data[filtered_data['Domain'] == domain]
 
 # Main content layout
-fig, axs = plt.subplots(2, 2, figsize=(22, 15))
+fig, axs = plt.subplots(2, 2, figsize=(25, 15))
 
 # Plot 1: Presence Distribution (Pie Chart)
 rank_presence = filtered_data['Rank'].apply(lambda x: 'Absent' if x == 0 else 'Present')
@@ -120,7 +120,7 @@ image_stream = io.BytesIO()
 # Change the background color to pale
 skin_color_rgb = (255/255, 255/255, 224.9/255)
 fig.patch.set_facecolor(skin_color_rgb)
-plt.rcParams.update({'font.family': 'serif', 'font.size': 12})
+plt.rcParams.update({'font.family': 'serif', 'font.size': 15})
 
 dpi = 500
 
