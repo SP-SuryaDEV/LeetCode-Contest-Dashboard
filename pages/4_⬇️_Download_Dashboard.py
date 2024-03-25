@@ -130,12 +130,12 @@ plt.savefig(image_stream, format='png', dpi=dpi)
 st.image(image_stream, caption='Combined Plots', use_column_width=True)
 image_stream.seek(0)
 
-def saveDashboard(image_stream):
+def saveDashboard(image_stream, fig_text):
     img = Image.open(image_stream)
     img.save(f'{fig_text}.png')
     return True
 
-if saveDashboard(image_stream):
+if saveDashboard(image_stream, fig_text):
 
     try:
         with open(f"{fig_text}.png", "rb") as file:
@@ -149,7 +149,7 @@ if saveDashboard(image_stream):
             st.success("Image saved successfully!")
     
     except:
-        saveDashboard(image_stream)    
+        saveDashboard(image_stream, fig_text)    
         with open(f"{fig_text}.png", "rb") as file:
             btn = st.download_button(
                     label="Download Dashboard",
