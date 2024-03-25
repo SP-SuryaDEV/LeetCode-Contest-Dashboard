@@ -136,13 +136,26 @@ def saveDashboard(image_stream):
     return True
 
 if saveDashboard(image_stream):
+
+    try:
+        with open(f"{fig_text}.png", "rb") as file:
+            btn = st.download_button(
+                    label="Download Dashboard",
+                    data=file,
+                    file_name=f"{fig_text}.png",
+                    mime="image/png"
+              )
+        if btn:
+            st.success("Image saved successfully!")
     
-    with open(f"{fig_text}.png", "rb") as file:
-        btn = st.download_button(
-                label="Download Dashboard",
-                data=file,
-                file_name=f"{fig_text}.png",
-                mime="image/png"
-          )
-    if btn:
-        st.success("Image saved successfully!")
+    except:
+        saveDashboard(image_stream)    
+        with open(f"{fig_text}.png", "rb") as file:
+            btn = st.download_button(
+                    label="Download Dashboard",
+                    data=file,
+                    file_name=f"{fig_text}.png",
+                    mime="image/png"
+              )
+        if btn:
+            st.success("Image saved successfully!")
