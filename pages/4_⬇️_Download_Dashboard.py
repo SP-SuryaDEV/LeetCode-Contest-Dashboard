@@ -102,7 +102,7 @@ categories = pd.cut(filtered_data[filtered_data['Rank'] != 0]['Rank'], bins=bins
 rank_counts = categories.value_counts().reindex(bin_labels, fill_value=0)
 rank_data = pd.DataFrame({'Rank Range': rank_counts.index, 'Count': rank_counts.values})
 axs[1, 1].bar(rank_data['Rank Range'], rank_data['Count'],color=plasma_colors)
-axs[1, 1].set_xticklabels(rank_data['Rank Range'], rank_data['Count'], rotation=45)
+axs[1, 1].set_xticklabels(rank_data['Rank Range'], rotation=45)
 axs[1, 1].set_title('Rank Range Distribution')
 # Display the count above each bar
 for i, count in enumerate(rank_data['Count']):
