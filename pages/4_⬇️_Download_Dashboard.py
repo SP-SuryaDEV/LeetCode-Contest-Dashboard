@@ -112,7 +112,7 @@ for i, count in enumerate(rank_data['Count']):
   
 #fig.suptitle('LeetCode Weekly Contest Data', fontsize=40, y=.97)
 #fig_text = 'LeetCode Weekly Data'  # Text to be underlined
-fig_text = f'LeetCode Weekly Contest Data [24/03/2024] ({department if department != "All" else "All Depts."}) - [{year if year != "All" else "All"}]'  # Dynamic title based on department filter  # Text to be underlined
+fig_text = f'LeetCode Weekly Contest 390 [24/03/2024] ({department if department != "All" else "All Depts."}) - [{year if year != "All" else "All Years"}]'  # Dynamic title based on department filter  # Text to be underlined
 fig.suptitle(fig_text, fontsize=40, y=.96, fontweight='bold', color='black', style='italic', bbox=dict(facecolor='none', edgecolor='none', boxstyle='round,pad=0.5'))  # Underlined text using bbox
 
 image_stream = io.BytesIO()
@@ -133,15 +133,16 @@ image_stream.seek(0)
 def saveDashboard(image_stream):
     img = Image.open(image_stream)
     img.save(f'{fig_text}.png')
+    return True
 
-saveDashboard(image_stream)
+if saveDashboard(image_stream):
     
-with open(f"{fig_text}.png", "rb") as file:
-    btn = st.download_button(
-            label="Download Dashboard",
-            data=file,
-            file_name=f"{fig_text}.png",
-            mime="image/png"
+    with open(f"{fig_text}.png", "rb") as file:
+        btn = st.download_button(
+                label="Download Dashboard",
+                data=file,
+                file_name=f"{fig_text}.png",
+                mime="image/png"
           )
     if btn:
         st.success("Image saved successfully!")
