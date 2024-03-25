@@ -101,7 +101,7 @@ bin_labels = ['0-1000', '1000-5000', '5000-10000', '10000-15000', '15000-20000',
 categories = pd.cut(filtered_data[filtered_data['Rank'] != 0]['Rank'], bins=bins, labels=bin_labels, ordered=True)
 rank_counts = categories.value_counts().reindex(bin_labels, fill_value=0)
 rank_data = pd.DataFrame({'Rank Range': rank_counts.index, 'Count': rank_counts.values})
-axs[1, 1].bar(rank_data['Rank Range'], rank_data['Count'],color=plasma_colors)
+axs[1, 1].bar(rank_data['Rank Range'], rank_data['Count'],color=plasma_colors, set_xticklabels=45)
 axs[1, 1].set_title('Rank Range Distribution')
 # Display the count above each bar
 for i, count in enumerate(rank_data['Count']):
