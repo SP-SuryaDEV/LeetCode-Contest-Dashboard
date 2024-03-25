@@ -135,7 +135,7 @@ def saveDashboard(image_stream, fig_text):
     img.save(f'{fig_text}.png')
     return True
 
-saveDashboard(image_stream, fig_text):
+saveDashboard(image_stream, fig_text)
 
 with open(f"{fig_text}.png", "rb") as file:
     btn = st.download_button(
