@@ -57,6 +57,30 @@ for i, count in enumerate(problem_data['Count']):
     axs[0, 1].text(problem_data['Problems'][i], count, str(count), ha='center', va='bottom')
 
 # Plot 3: Top 10 Performers (Rank Performance)
+# viridis_colors = [
+#     "#440154",  # Deep purple-blue
+#     "#482878",
+#     "#3e4989",
+#     "#31688e",
+#     "#26828e",
+#     "#1f9e89",
+#     "#35b779",
+#     "#6dcd59",
+#     "#b4dd2c",
+#     "#fde725"   # Vibrant yellow-green
+# ]
+
+# sorted_filtered = filtered_data[filtered_data['Rank'] > 0].sort_values(by='Rank').head(10)[::-1]
+# names_with_ranks = [f"{name} ({len(sorted_filtered) - rank}{'th' if (len(sorted_filtered) - rank) % 10 == 0 or (len(sorted_filtered) - rank) % 10 >= 4 or 10 < (len(sorted_filtered) - rank) % 100 < 20 else ['st', 'nd', 'rd'][(len(sorted_filtered) - rank) % 10 - 1]} Rank)" for rank, name in enumerate(sorted_filtered['Name'])]
+# axs[1, 0].barh(names_with_ranks, sorted_filtered['Rank'],color=viridis_colors)
+# axs[1, 0].set_xlabel('Ranking Score')
+# axs[1, 0].set_ylabel('Name')
+# axs[1, 0].set_title('Top 10 Performers')
+# # Display the rank above each bar
+# for i, rank in enumerate(sorted_filtered['Rank']):
+#     axs[1, 0].text(rank, i, str(rank), ha='left', va='bottom')
+
+# Plot 3: Top 10 Performers (Rank Performance)
 viridis_colors = [
     "#440154",  # Deep purple-blue
     "#482878",
@@ -72,13 +96,15 @@ viridis_colors = [
 
 sorted_filtered = filtered_data[filtered_data['Rank'] > 0].sort_values(by='Rank').head(10)[::-1]
 names_with_ranks = [f"{name} ({len(sorted_filtered) - rank}{'th' if (len(sorted_filtered) - rank) % 10 == 0 or (len(sorted_filtered) - rank) % 10 >= 4 or 10 < (len(sorted_filtered) - rank) % 100 < 20 else ['st', 'nd', 'rd'][(len(sorted_filtered) - rank) % 10 - 1]} Rank)" for rank, name in enumerate(sorted_filtered['Name'])]
-axs[1, 0].barh(names_with_ranks, sorted_filtered['Rank'],color=viridis_colors)
+bars = axs[1, 0].barh(names_with_ranks, sorted_filtered['Rank'],color=viridis_colors)
 axs[1, 0].set_xlabel('Ranking Score')
 axs[1, 0].set_ylabel('Name')
 axs[1, 0].set_title('Top 10 Performers')
 # Display the rank above each bar
-for i, rank in enumerate(sorted_filtered['Rank']):
-    axs[1, 0].text(rank, i, str(rank), ha='left', va='bottom')
+for bar, name in zip(bars, names_with_ranks):
+    width = bar.get_width()
+    axs[1, 0].text(width, bar.get_y() + bar.get_height()/2, name, va='center', ha='left', fontsize=14)
+
 
 # Plot 4: Rank Range Distribution
 plasma_colors = [
