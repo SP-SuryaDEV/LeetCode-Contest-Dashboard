@@ -56,7 +56,7 @@ axs[0, 1].set_title('Problems Solved')
 for i, count in enumerate(problem_data['Count']):
     axs[0, 1].text(problem_data['Problems'][i], count, str(count), ha='center', va='bottom')
 
-Plot 3: Top 10 Performers (Rank Performance)
+#Plot 3: Top 10 Performers (Rank Performance)
 viridis_colors = [
     "#440154",  # Deep purple-blue
     "#482878",
