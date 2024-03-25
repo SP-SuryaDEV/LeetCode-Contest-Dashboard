@@ -119,7 +119,7 @@ image_stream = io.BytesIO()
 # Change the background color to pale
 skin_color_rgb = (255/255, 255/255, 224.9/255)
 fig.patch.set_facecolor(skin_color_rgb)
-plt.rcParams.update({'font.family': 'serif', 'font.size': 15})
+plt.rcParams.update({'font.family': 'serif', 'font.size': 12})
 
 dpi = 500
 
