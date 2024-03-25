@@ -33,7 +33,7 @@ if domain != 'All':
     filtered_data = filtered_data[filtered_data['Domain'] == domain]
 
 # Main content layout
-fig, axs = plt.subplots(2, 2, figsize=(22, 15))
+fig, axs = plt.subplots(2, 2, figsize=(30, 15))
 
 # Plot 1: Presence Distribution (Pie Chart)
 rank_presence = filtered_data['Rank'].apply(lambda x: 'Absent' if x == 0 else 'Present')
