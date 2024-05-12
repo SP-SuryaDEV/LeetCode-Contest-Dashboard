@@ -8,8 +8,7 @@ import io
 from PIL import Image
 
 # Load data
-data = pd.read_csv('data.csv')
-
+data = st.session_state.data
 # st.set_page_config(layout="wide")
 
 # Define unique values for filters
