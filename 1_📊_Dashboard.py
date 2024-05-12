@@ -16,7 +16,7 @@ st.session_state.data_option = st.sidebar.selectbox(label='Select Contest Name',
 if st.session_state.get('data_option'):
     if st.session_state.data_option == 'Leetcode Biweekly Contest - 130 [11/05/2024]':
         st.session_state.data = pd.read_csv('bw130.csv')
-    else:
+    elif st.session_state.data_option == 'Leetcode Weekly Contest - 397 [12/05/2024]':
         st.session_state.data = pd.read_csv('w397.csv')
 
     st.sidebar.header(st.session_state.data_option)
