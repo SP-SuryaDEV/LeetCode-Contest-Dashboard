@@ -125,7 +125,7 @@ if st.session_state.get('data_option'):
         with cold1:
             st.write("")
         with cold2:
-            st.metric("Total Students", len(presence_data))
+            st.metric("Total Students", len(filtered_data))
         with cold3:
             st.metric("Total Present", presence_data[presence_data['Presence'] == 'Present']['Count'].values[0])
         with cold4:
