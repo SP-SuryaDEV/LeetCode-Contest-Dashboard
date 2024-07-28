@@ -8,6 +8,7 @@ import io
 from PIL import Image
 
 st.session_state.data_option = st.sidebar.selectbox(label='Select Contest Name', options=[
+    'Leetcode Weekly Contest - 408 [28.07.2024]',
     'Leetcode Weekly Contest - 407 [21.07.2024]',
     'Leetcode Weekly Contest - 406 [14.07.2024]',
     'Leetcode Weekly Contest - 405 [07.07.2024]',
@@ -30,7 +31,8 @@ if st.session_state.get('data_option'):
         st.session_state.data = pd.read_csv('w406.csv')
     elif st.session_state.data_option == 'Leetcode Weekly Contest - 407 [21.07.2024]':
         st.session_state.data = pd.read_csv('w407.csv')
-
+    elif st.session_state.data_option == 'Leetcode Weekly Contest - 408 [28.07.2024]':
+        st.session_state.data = pd.read_csv('w408.csv')
     
     st.sidebar.header(st.session_state.data_option)
 
