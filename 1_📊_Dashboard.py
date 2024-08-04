@@ -8,7 +8,7 @@ st.set_page_config(
     layout="wide")
 
 st.session_state.data_option = st.sidebar.selectbox(label='Select Contest Name', options=[
-    'Leetcode Weekly Contest - 409 [04.08.2024',
+    'Leetcode Weekly Contest - 409 [04.08.2024]',
     'Leetcode Biweekly Contest - 136 [03.08.2024]',
     'Leetcode Weekly Contest - 408 [28.07.2024]',
     'Leetcode Weekly Contest - 407 [21.07.2024]',
