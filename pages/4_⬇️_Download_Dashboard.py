@@ -37,7 +37,7 @@ if st.session_state.get('data_option'):
         st.session_state.data = pd.read_csv('w408.csv')
     elif st.session_state.data_option == 'Leetcode Weekly Contest - 409 [04.08.2024]':
         st.session_state.data = pd.read_csv('w409.csv')
-    elif st.session_state.data_options == 'Leetcode Biweekly Contest - 136 [03.08.2024]':
+    elif st.session_state.data_option == 'Leetcode Biweekly Contest - 136 [03.08.2024]':
         st.session_state.data = pd.read_csv('bw136.csv')
     
     st.sidebar.header(st.session_state.data_option)
