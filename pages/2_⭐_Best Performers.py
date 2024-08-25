@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 st.session_state.data_option = st.sidebar.selectbox(label='Select Contest Name', options=[
+    'Leetcode Weekly Contest - 412 [25.08.2024]',
     'Leetcode Weekly Contest - 411 [18.08.2024]',
     'Leetcode Weekly Contest - 410 [11.08.2024]',
     'Leetcode Weekly Contest - 409 [04.08.2024]',
@@ -40,6 +41,8 @@ if st.session_state.get('data_option'):
         st.session_state.data = pd.read_csv('w410.csv')
     elif st.session_state.data_option == 'Leetcode Weekly Contest - 411 [18.08.2024]':
         st.session_state.data = pd.read_csv('w411.csv')
+    elif st.session_state.data_option == 'Leetcode Weekly Contest - 412 [25.08.2024]':
+        st.session_state.data = pd.read_csv('w412.csv')
     
     st.sidebar.header(st.session_state.data_option)
     
